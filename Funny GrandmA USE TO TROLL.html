@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grandma's Nitro Dance Party</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #dance-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    #nitro-code {
+        display: none;
+        font-size: 20px;
+        color: green;
+    }
+</style>
+</head>
+<body>
+    <h1>Welcome to Grandma's Nitro Dance Party!</h1>
+    <button id="dance-button">Watch Grandma Dance</button>
+    <div id="nitro-code"></div>
+
+    <script>
+        function generateNitroCode() {
+            // In reality, you'd generate a unique code here. For simplicity, let's just generate a random one.
+            return Math.random().toString(36).substr(2, 16).toUpperCase();
+        }
+
+        document.getElementById("dance-button").addEventListener("click", function() {
+            var danceMoves = ["Twist", "Cha-Cha Slide", "Electric Slide", "Moonwalk", "Robot Dance", "Macarena"];
+            var grandmaMoves = shuffleArray(danceMoves);
+            var grandmaMovesText = grandmaMoves.join(", ");
+            alert("Get ready to dance with Grandma!\n\nGrandma does the following moves:\n" + grandmaMovesText);
+
+            var nitroCode = generateNitroCode();
+            document.getElementById("nitro-code").textContent = "Use this code on Discord to claim your Nitro subscription: https://discord.com/gifts/" + nitroCode;
+            document.getElementById("nitro-code").style.display = "block";
+        });
+
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        }
+    </script>
+</body>
+</html>
